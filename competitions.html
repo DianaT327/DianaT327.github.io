@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Соревнования по фигурному катанию</title>
+    
+    <!-- Подключение шрифтов -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Epunda+Slab&family=Pacifico&display=swap" rel="stylesheet">
+    
+    <!-- Подключение основных стилей -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Подключение favicon -->
+    <link rel="icon" type="image/png" href="favicon3.jpg">
+    
+    <link rel="stylesheet" href="competitions.css">
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header>
+        <div class="header-container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="Russian_Olympic_Committee_flag.png" alt="Логотип Российской Федерации Фигурного Катания" width="200" height="120">
+                </div>
+                
+                <nav>
+                    <div class="mobile-menu-header">
+                        <div class="menu-close-btn" onclick="toggleMenu()" title="Закрыть меню">
+                            <span>×</span>
+                        </div>
+                    </div>
+                    
+                    <div class="nav-content">
+                        <ul>
+                            <li><a href="index.html">Российское фигурное катание</a></li>
+                            <li><a href="competitions.html">Значимые мероприятия</a></li>
+                            <li><a href="skaters.html">Российские фигуристы</a></li>
+                            <li><a href="elements.html">Элементы в фигурном катании</a></li>
+                            <li><a href="form.html">Формы регистрации и обратной связи</a></li>
+                            <li class="notifications-nav-item">
+                                <div class="notifications-container">
+                                    <div class="notifications-icon" onclick="toggleNotifications()">
+                                        🔔
+                                        <span class="notification-badge">3</span>
+                                    </div>
+                                    <div class="notifications-dropdown">
+                                        <button class="notifications-close" onclick="closeNotifications()" title="Закрыть">×</button>
+                                        <div class="notifications-header">
+                                            <h3>Уведомления</h3>
+                                            <span class="notifications-count">3 новых</span>
+                                        </div>
+                                        <div class="notifications-list">
+                                            <div class="notification-item unread">
+                                            <div class="notification-icon">🏆</div>
+                                            <div class="notification-content">
+                                                <div class="notification-title">IV этап Гран-при России</div>
+                                                <div class="notification-text">Пройдет в Москве 15-16 ноября</div>
+                                                <div class="notification-time">11 нояб. 2025 г.</div>
+                                                <button class="notification-read-btn" onclick="markAsRead(this)">Прочитано</button>
+                                            </div>
+                                        </div>
+                                        <div class="notification-item unread">
+                                            <div class="notification-icon">⭐</div>
+                                            <div class="notification-content">
+                                                <div class="notification-title">Ледовые шоу</div>
+                                                <div class="notification-text">Новые даты выступлений</div>
+                                                <div class="notification-time">12 сент. 2025 г.</div>
+                                                <button class="notification-read-btn" onclick="markAsRead(this)">Прочитано</button>
+                                            </div>
+                                        </div>
+                                        <div class="notification-item unread">
+                                            <div class="notification-icon">📅</div>
+                                            <div class="notification-content">
+                                                <div class="notification-title">Расписание Гран-при</div>
+                                                <div class="notification-text">Этапы сезона 2025-2026</div>
+                                                <div class="notification-time">4 сент. 2025 г.</div>
+                                                <button class="notification-read-btn" onclick="markAsRead(this)">Прочитано</button>
+                                            </div>
+                                        </div>
+                                        <div class="notification-item">
+                                            <div class="notification-icon">🎯</div>
+                                            <div class="notification-content">
+                                                <div class="notification-title">Новый сезон стартует</div>
+                                                <div class="notification-text">Сезон 2025-2026 начинается в сентябре</div>
+                                                <div class="notification-time">30 авг. 2025 г.</div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            
+            <div class="burger-menu" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Основное содержимое страницы -->
+    <div class="content-container">
+        <main>
+            <!-- Герой-секция -->
+            <section class="competition-hero">
+                <h1>Соревнования по фигурному катанию</h1>
+                <p>Главные турниры сезона 2025-2026, результаты, расписание и подробная информация о всех значимых событиях российского фигурного катания</p>
+                <a href="#calendar" class="competition-button">Смотреть календарь</a>
+            </section>
+
+            <!-- Фильтры соревнований -->
+            <div class="competition-filters">
+                <button class="filter-btn active" onclick="filterCompetitions('all')">Все соревнования</button>
+                <button class="filter-btn" onclick="filterCompetitions('upcoming')">Предстоящие</button>
+                <button class="filter-btn" onclick="filterCompetitions('ongoing')">Текущие</button>
+                <button class="filter-btn" onclick="filterCompetitions('completed')">Завершенные</button>
+                <button class="filter-btn" onclick="filterCompetitions('national')">Российские</button>
+            </div>
+
+            <!-- Сетка соревнований (БЕЗ ИЗОБРАЖЕНИЙ) -->
+            <div class="competition-grid" id="competitionsGrid">
+                <!-- Карточки будут добавляться через JavaScript -->
+            </div>
+
+            <!-- Важные турниры сезона -->
+            <section class="tournament-highlight">
+                <div class="tournament-info">
+                    <div class="tournament-trophy">🏆</div>
+                    <h2>Главный турнир сезона: Чемпионат России 2026</h2>
+                    <p>Ключевое событие российского фигурного катания, которое определит чемпионов страны и состав сборной. Более 40 участников в каждой дисциплине борются за звание сильнейших.</p>
+                    <div style="margin-top: 30px; display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;">
+                        <span style="background: rgba(255,255,255,0.2); padding: 10px 20px; border-radius: 20px;">
+                            📅 25-28 декабря 2025
+                        </span>
+                        <span style="background: rgba(255,255,255,0.2); padding: 10px 20px; border-radius: 20px;">
+                            📍 Москва, ВТБ Арена
+                        </span>
+                    </div>
+                    <button class="competition-button" style="background: white; color: var(--primary-color); margin-top: 30px;" onclick="showCompetitionDetails(4)">
+                        Подробнее о Чемпионате
+                    </button>
+                </div>
+            </section>
+
+            <!-- Календарь соревнований -->
+            <section class="calendar-section" id="calendar">
+                <h2>Календарь соревнований 2025-2026</h2>
+                <p>Полное расписание всех значимых турниров сезона</p>
+                
+                <div class="calendar-grid">
+                    <div class="calendar-month">
+                        <h3 class="month-title">Ноябрь 2025</h3>
+                        <div class="calendar-event" onclick="showCompetitionDetails(1)">
+                            <div class="event-date">15-16 ноября</div>
+                            <div class="event-name">IV этап Гран-при России</div>
+                            <div class="event-location">Москва, Мегаспорт</div>
+                        </div>
+                        <div class="calendar-event" onclick="showCompetitionDetails(2)">
+                            <div class="event-date">22-23 ноября</div>
+                            <div class="event-name">V этап Гран-при России</div>
+                            <div class="event-location">Казань, Татнефть Арена</div>
+                        </div>
+                        <div class="calendar-event">
+                            <div class="event-date">29-30 ноября</div>
+                            <div class="event-name">Чемпионат Европы (отбор)</div>
+                            <div class="event-location">Хельсинки, Финляндия</div>
+                        </div>
+                    </div>
+                    
+                    <div class="calendar-month">
+                        <h3 class="month-title">Декабрь 2025</h3>
+                        <div class="calendar-event" onclick="showCompetitionDetails(3)">
+                            <div class="event-date">6-7 декабря</div>
+                            <div class="event-name">Финальный этап Гран-при России</div>
+                            <div class="event-location">Санкт-Петербург, СИБУР Арена</div>
+                        </div>
+                        <div class="calendar-event">
+                            <div class="event-date">13-14 декабря</div>
+                            <div class="event-name">Этап Кубка России</div>
+                            <div class="event-location">Сочи, Ледовый дворец</div>
+                        </div>
+                        <div class="calendar-event" onclick="showCompetitionDetails(4)">
+                            <div class="event-date">25-28 декабря</div>
+                            <div class="event-name">Чемпионат России 2026</div>
+                            <div class="event-location">Москва, ВТБ Арена</div>
+                        </div>
+                    </div>
+                    
+                    <div class="calendar-month">
+                        <h3 class="month-title">Январь 2026</h3>
+                        <div class="calendar-event" onclick="showCompetitionDetails(5)">
+                            <div class="event-date">10-12 января</div>
+                            <div class="event-name">Чемпионат Европы 2026</div>
+                            <div class="event-location">Таллин, Эстония</div>
+                        </div>
+                        <div class="calendar-event" onclick="showCompetitionDetails(6)">
+                            <div class="event-date">20-25 января</div>
+                            <div class="event-name">Зимние Олимпийские игры</div>
+                            <div class="event-location">Милан-Кортина, Италия</div>
+                        </div>
+                    </div>
+                    
+                    <div class="calendar-month">
+                        <h3 class="month-title">Февраль-Март 2026</h3>
+                        <div class="calendar-event">
+                            <div class="event-date">15-20 февраля</div>
+                            <div class="event-name">Чемпионат России среди юниоров</div>
+                            <div class="event-location">Пермь, Молот Арена</div>
+                        </div>
+                        <div class="calendar-event">
+                            <div class="event-date">2-8 марта</div>
+                            <div class="event-name">Чемпионат мира</div>
+                            <div class="event-location">Бостон, США</div>
+                        </div>
+                        <div class="calendar-event">
+                            <div class="event-date">22-29 марта</div>
+                            <div class="event-name">Финальная серия "Русские сезоны"</div>
+                            <div class="event-location">Москва, Мегаспорт</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Результаты недавних соревнований -->
+            <section class="results-section" id="russian-championship">
+                <h2>Результаты Чемпионата России 2025</h2>
+                <p>Итоги главного национального турнира сезона 2024-2025</p>
+                
+                <div class="results-table-wrapper">
+                    <table class="results-table">
+                        <thead>
+                            <tr>
+                                <th>Место</th>
+                                <th>Фигурист(ка)</th>
+                                <th>Короткая программа</th>
+                                <th>Произвольная программа</th>
+                                <th>Сумма баллов</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="medal gold">1</span></td>
+                                <td><strong>Аделия Петросян</strong><br><small>Москва, Хрустальный</small></td>
+                                <td>82.45</td>
+                                <td>167.89</td>
+                                <td><strong>250.34</strong></td>
+                            </tr>
+                            <tr>
+                                <td><span class="medal silver">2</span></td>
+                                <td><strong>Дарья Садкова</strong><br><small>Москва, Хрустальный</small></td>
+                                <td>79.23</td>
+                                <td>162.45</td>
+                                <td><strong>241.68</strong></td>
+                            </tr>
+                            <tr>
+                                <td><span class="medal bronze">3</span></td>
+                                <td><strong>Алина Горбачева</strong><br><small>Москва, Триумф</small></td>
+                                <td>78.67</td>
+                                <td>159.32</td>
+                                <td><strong>237.99</strong></td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td><strong>Софья Акатьева</strong><br><small>Москва, Хрустальный</small></td>
+                                <td>76.89</td>
+                                <td>155.67</td>
+                                <td><strong>232.56</strong></td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td><strong>Маргарита Базылюк</strong><br><small>Санкт-Петербург</small></td>
+                                <td>74.56</td>
+                                <td>152.34</td>
+                                <td><strong>226.90</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="info-box">
+                    <h3>🏆 Особенности турнира:</h3>
+                    <ul class="details-list">
+                        <li>Аделия Петросян исполнила чистейшую произвольную программу с тремя четверными прыжками</li>
+                        <li>Дарья Садкова показала лучший результат в карьере</li>
+                        <li>Впервые в истории Чемпионата России все призеры исполнили тройной аксель</li>
+                        <li>Общий рекорд аудитории турнира - более 50,000 зрителей</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Результаты мужского турнира -->
+            <section class="results-section">
+                <h2>Чемпионат России 2025 - Мужчины</h2>
+                <p>Результаты турнира в мужском одиночном катании</p>
+                
+                <div class="results-table-wrapper">
+                    <table class="results-table">
+                        <thead>
+                            <tr>
+                                <th>Место</th>
+                                <th>Фигурист</th>
+                                <th>Короткая программа</th>
+                                <th>Произвольная программа</th>
+                                <th>Сумма баллов</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="medal gold">1</span></td>
+                                <td><strong>Владислав Дикиджи</strong><br><small>Москва, Звёздный лёд</small></td>
+                                <td>101.23</td>
+                                <td>195.87</td>
+                                <td><strong>297.10</strong></td>
+                            </tr>
+                            <tr>
+                                <td><span class="medal silver">2</span></td>
+                                <td><strong>Петр Гуменник</strong><br><small>Санкт-Петербург</small></td>
+                                <td>98.67</td>
+                                <td>194.45</td>
+                                <td><strong>293.12</strong></td>
+                            </tr>
+                            <tr>
+                                <td><span class="medal bronze">3</span></td>
+                                <td><strong>Евгений Семененко</strong><br><small>Санкт-Петербург</small></td>
+                                <td>95.43</td>
+                                <td>189.67</td>
+                                <td><strong>285.10</strong></td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td><strong>Андрей Мозалёв</strong><br><small>Москва</small></td>
+                                <td>94.56</td>
+                                <td>187.89</td>
+                                <td><strong>282.45</strong></td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td><strong>Максим Беляков</strong><br><small>Казань</small></td>
+                                <td>91.34</td>
+                                <td>182.45</td>
+                                <td><strong>273.79</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Формат соревнований -->
+            <section class="form-section" style="margin-top: 50px;">
+                <h2 class="form-title">Форматы и правила соревнований</h2>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 30px;">
+                    <div class="sidebar-widget">
+                        <h4 class="sidebar-widget-title">🇷🇺 Российские турниры</h4>
+                        <ul class="sidebar-list">
+                            <li>Чемпионат России - главный национальный турнир</li>
+                            <li>Гран-при России - серия из 6 этапов и финала</li>
+                            <li>Кубок России - турниры для спортсменов всех уровней</li>
+                            <li>Первенство России - соревнования среди юниоров</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="sidebar-widget">
+                        <h4 class="sidebar-widget-title">📊 Система судейства</h4>
+                        <ul class="sidebar-list">
+                            <li>Система ISU Judging System (IJS)</li>
+                            <li>Технические баллы за элементы</li>
+                            <li>Баллы за компоненты программы</li>
+                            <li>Вычеты за нарушения и падения</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="sidebar-widget">
+                        <h4 class="sidebar-widget-title">🏆 Призовые фонды</h4>
+                        <ul class="sidebar-list">
+                            <li>Чемпионат России: 5 млн рублей</li>
+                            <li>Гран-при России: 3 млн рублей</li>
+                            <li>Кубок России: 1 млн рублей</li>
+                            <li>Специальные призы за элементы</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="info-box">
+                    <h3>📝 Как попасть на соревнования?</h3>
+                    <p style="margin-top: 15px;">Для участия в российских турнирах фигуристам необходимо:</p>
+                    <ol style="margin-top: 10px; padding-left: 25px;">
+                        <li>Иметь действующую спортивную классификацию</li>
+                        <li>Подать заявку через региональную федерацию</li>
+                        <li>Пройти медицинское обследование</li>
+                        <li>Выполнить квалификационные нормативы</li>
+                        <li>Предоставить оригиналы документов</li>
+                    </ol>
+                    <button class="competition-button" onclick="showRegistrationForm()">Подать заявку на участие</button>
+                </div>
+            </section>
+        </main>
+
+        <!-- Боковая панель -->
+        <aside class="sidebar">
+            <h3 class="sidebar-title">Ближайшие соревнования</h3>
+            
+            <div class="sidebar-widget">
+                <h4 class="sidebar-widget-title">⏰ Сегодня</h4>
+                <div class="sidebar-list">
+                    <div style="padding: 12px 0; border-bottom: 1px solid rgba(0,0,0,0.1);">
+                        <div style="font-weight: 600; color: var(--primary-color);">Гран-при России</div>
+                        <div style="font-size: 0.9em; color: var(--text-light);">Короткая программа, женщины</div>
+                        <div style="font-size: 0.8em; margin-top: 5px; color: var(--secondary-color);">15:00 - 18:30, Москва</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-widget">
+                <h4 class="sidebar-widget-title">📅 На этой неделе</h4>
+                <ul class="sidebar-list">
+                    <li>16 ноября - Произвольная программа, Гран-при России</li>
+                    <li>17 ноября - Тренировочный день</li>
+                    <li>18 ноября - Церемония награждения</li>
+                    <li>20 ноября - Пресс-конференция</li>
+                </ul>
+            </div>
+
+            <div class="sidebar-widget">
+                <h4 class="sidebar-widget-title">🎫 Билеты</h4>
+                <p>Билеты на все этапы Гран-при России уже в продаже! Успейте приобрести лучшие места.</p>
+                <button class="competition-button" style="width: 100%; margin-top: 15px;" onclick="window.open('https://www.kassir.ru', '_blank')">
+                    🎟️ Купить билеты
+                </button>
+            </div>
+
+            <div class="sidebar-widget">
+                <h4 class="sidebar-widget-title">📺 Трансляции</h4>
+                <ul class="sidebar-list">
+                    <li>🎬 Матч ТВ - основные трансляции</li>
+                    <li>💻 Sportbox.ru - онлайн-вещание</li>
+                    <li>📱 Okko - эксклюзивные показы</li>
+                    <li>📡 YouTube - международные турниры</li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Подвал -->
+    <footer class="footer"> <!-- Подвал страницы -->
+        <div class="footer-container"> <!-- Контейнер для содержимого подвала -->
+            <p>© 2025 Разработчик:Тараненко Диана</p> <!-- Информация об разработчике -->
+            <address> <!-- Блок контактной информации -->
+                Адрес электронной почты: <a href="mailto:didiana.taranenko@gmail.com">didiana.taranenko@gmail.com</a><br> <!-- Ссылка на email -->
+                Номер мобильного телефона: <a href="tel:+79309498927">+7 (930) 949-89-27</a><br> <!-- Ссылка на телефонный номер -->
+          </address> <!-- Закрытие тега address (блока с контактной информацией) -->
+        </div> <!-- Закрытие div с классом "footer-container" (контейнера содержимого подвала) -->
+    </footer> <!-- Закрытие тега footer (подвала сайта) -->
+
+    <!-- JavaScript для работы страницы -->
+<script src="script.js" defer></script>
+<script src="competitions.js" defer></script>
+
+<div class="snowflakes-container" aria-hidden="true">
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❅</div>
+    <div class="snowflake">❆</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❅</div>
+    <div class="snowflake">❆</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❅</div>
+    <div class="snowflake">❆</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❅</div>
+    <div class="snowflake">❆</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❅</div>
+    <div class="snowflake">❆</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❅</div>
+    <div class="snowflake">❆</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❅</div>
+    <div class="snowflake">❆</div>
+</div>
+</body>
+</html>

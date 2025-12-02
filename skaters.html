@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лучшие фигуристы России | Российское фигурное катание</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Epunda+Slab&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon3.jpg">
+    <link rel="stylesheet" href="skaters.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="Russian_Olympic_Committee_flag.png" alt="Логотип Российской Федерации Фигурного Катания" width="200" height="120">
+                </div>
+                
+                <nav>
+                    <div class="mobile-menu-header">
+                        <div class="menu-close-btn" onclick="toggleMenu()" title="Закрыть меню">
+                            <span>×</span>
+                        </div>
+                    </div>
+                    
+                    <div class="nav-content">
+                        <ul>
+                            <li><a href="index.html">Российское фигурное катание</a></li>
+                            <li><a href="competitions.html">Значимые мероприятия</a></li>
+                            <li><a href="skaters.html">Российские фигуристы</a></li>
+                            <li><a href="elements.html">Элементы в фигурном катании</a></li>
+                            <li><a href="form.html">Формы регистрации и обратной связи</a></li>
+                            <li class="notifications-nav-item">
+                                <div class="notifications-container">
+                                    <div class="notifications-icon" onclick="toggleNotifications()">
+                                        🔔
+                                        <span class="notification-badge">3</span>
+                                    </div>
+                                    <div class="notifications-dropdown">
+                                        <button class="notifications-close" onclick="closeNotifications()" title="Закрыть">×</button>
+                                        <div class="notifications-header">
+                                            <h3>Уведомления</h3>
+                                            <span class="notifications-count">3 новых</span>
+                                        </div>
+                                        <div class="notifications-list">
+                                            <div class="notification-item unread">
+                                            <div class="notification-icon">🏆</div>
+                                            <div class="notification-content">
+                                                <div class="notification-title">IV этап Гран-при России</div>
+                                                <div class="notification-text">Пройдет в Москве 15-16 ноября</div>
+                                                <div class="notification-time">11 нояб. 2025 г.</div>
+                                                <button class="notification-read-btn" onclick="markAsRead(this)">Прочитано</button>
+                                            </div>
+                                        </div>
+                                        <div class="notification-item unread">
+                                            <div class="notification-icon">⭐</div>
+                                            <div class="notification-content">
+                                                <div class="notification-title">Ледовые шоу</div>
+                                                <div class="notification-text">Новые даты выступлений</div>
+                                                <div class="notification-time">12 сент. 2025 г.</div>
+                                                <button class="notification-read-btn" onclick="markAsRead(this)">Прочитано</button>
+                                            </div>
+                                        </div>
+                                        <div class="notification-item unread">
+                                            <div class="notification-icon">📅</div>
+                                            <div class="notification-content">
+                                                <div class="notification-title">Расписание Гран-при</div>
+                                                <div class="notification-text">Этапы сезона 2025-2026</div>
+                                                <div class="notification-time">4 сент. 2025 г.</div>
+                                                <button class="notification-read-btn" onclick="markAsRead(this)">Прочитано</button>
+                                            </div>
+                                        </div>
+                                        <div class="notification-item">
+                                            <div class="notification-icon">🎯</div>
+                                            <div class="notification-content">
+                                                <div class="notification-title">Новый сезон стартует</div>
+                                                <div class="notification-text">Сезон 2025-2026 начинается в сентябре</div>
+                                                <div class="notification-time">30 авг. 2025 г.</div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            
+            <div class="burger-menu" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <div class="content-container">
+        <main>
+            <!-- Герой-секция -->
+            <section class="skaters-hero">
+                <div class="hero-content">
+                    <h1>Звёзды Российского Фигурного Катания</h1>
+                    <p>Легендарные спортсмены, которые покорили мир своими выступлениями</p>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">7</span>
+                            <span class="stat-label">Одиночниц</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">3</span>
+                            <span class="stat-label">Мужчин</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">3</span>
+                            <span class="stat-label">Пары и дуэта</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-overlay"></div>
+            </section>
+
+            <!-- Фильтр фигуристов -->
+            <section class="skaters-filter">
+                <div class="filter-container">
+                    <h2>Найти фигуриста</h2>
+                    <div class="filter-options">
+                        <button class="filter-btn active" onclick="filterSkaters('all')">Все</button>
+                        <button class="filter-btn" onclick="filterSkaters('women')">Женщины</button>
+                        <button class="filter-btn" onclick="filterSkaters('men')">Мужчины</button>
+                        <button class="filter-btn" onclick="filterSkaters('pairs')">Пары</button>
+                        <button class="filter-btn" onclick="filterSkaters('dance')">Танцы на льду</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Сетка фигуристов -->
+            <section class="skaters-grid-section">
+                <div class="skaters-container">
+                    <!-- Карточка 1: Анна Щербакова -->
+                    <div class="skater-card women" onclick="openModal(1)">
+                        <div class="skater-image">
+                            <img src="AnnaScherbakova1.jpg" 
+                                 alt="Анна Щербакова" loading="lazy">
+                            <div class="skater-category">Женщины</div>
+                        </div>
+                        <div class="skater-info">
+                            <h3>Анна Щербакова</h3>
+                            <p class="skater-type">Одиночное катание</p>
+                            <div class="skater-achievements">
+                                <span class="achievement">Олимпийская чемпионка 2022</span>
+                                <span class="achievement">Чемпионка мира 2021</span>
+                            </div>
+                            <div class="skater-stats">
+                                <span><i class="fas fa-birthday-cake"></i> 28 марта 2004</span>
+                                <span><i class="fas fa-user-tie"></i> Этери Тутберидзе</span>
+                            </div>
+                            <button class="view-more-btn" onclick="event.stopPropagation(); openModal(1)">
+                                Подробнее <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Карточка 2: Александра Трусова -->
+                    <div class="skater-card women" onclick="openModal(2)">
+                        <div class="skater-image">
+                            <img src="AleksandraTrusova1.jpg" 
+                                 alt="Александра Трусова" loading="lazy">
+                            <div class="skater-category">Женщины</div>
+                        </div>
+                        <div class="skater-info">
+                            <h3>Александра Трусова</h3>
+                            <p class="skater-type">Одиночное катание</p>
+                            <div class="skater-achievements">
+                                <span class="achievement">Олимпийское серебро 2022</span>
+                                <span class="achievement">5 четверных прыжков</span>
+                            </div>
+                            <div class="skater-stats">
+                                <span><i class="fas fa-birthday-cake"></i> 23 июня 2004</span>
+                                <span><i class="fas fa-user-tie"></i> Этери Тутберидзе</span>
+                            </div>
+                            <button class="view-more-btn" onclick="event.stopPropagation(); openModal(2)">
+                                Подробнее <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Карточка 3: Камила Валиева -->
+                    <div class="skater-card women" onclick="openModal(3)">
+                        <div class="skater-image">
+                            <img src="KamilaValieva1.jpg" 
+                                 alt="Камила Валиева" loading="lazy">
+                            <div class="skater-category">Женщины</div>
+                        </div>
+                        <div class="skater-info">
+                            <h3>Камила Валиева</h3>
+                            <p class="skater-type">Одиночное катание</p>
+                            <div class="skater-achievements">
+                                <span class="achievement">Олимпийская чемпионка</span>
+                                <span class="achievement">Чемпионка Европы 2022</span>
+                            </div>
+                            <div class="skater-stats">
+                                <span><i class="fas fa-birthday-cake"></i> 26 апреля 2006</span>
+                                <span><i class="fas fa-user-tie"></i> Этери Тутберидзе</span>
+                            </div>
+                            <button class="view-more-btn" onclick="event.stopPropagation(); openModal(3)">
+                                Подробнее <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Карточка 4: Марк Кондратюк -->
+                    <div class="skater-card men" onclick="openModal(4)">
+                        <div class="skater-image">
+                            <img src="MarkKondratuk1.jpg" 
+                                 alt="Марк Кондратюк" loading="lazy">
+                            <div class="skater-category">Мужчины</div>
+                        </div>
+                        <div class="skater-info">
+                            <h3>Марк Кондратюк</h3>
+                            <p class="skater-type">Одиночное катание</p>
+                            <div class="skater-achievements">
+                                <span class="achievement">Олимпийский чемпион</span>
+                                <span class="achievement">Чемпион Европы 2022</span>
+                            </div>
+                            <div class="skater-stats">
+                                <span><i class="fas fa-birthday-cake"></i> 3 сентября 2003</span>
+                                <span><i class="fas fa-user-tie"></i> Светлана Соколовская</span>
+                            </div>
+                            <button class="view-more-btn" onclick="event.stopPropagation(); openModal(4)">
+                                Подробнее <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Карточка 5: Евгения Медведева -->
+                    <div class="skater-card women" onclick="openModal(5)">
+                        <div class="skater-image">
+                            <img src="EvgeniaMedvedeva1.jpg" 
+                                 alt="Евгения Медведева" loading="lazy">
+                            <div class="skater-category">Женщины</div>
+                        </div>
+                        <div class="skater-info">
+                            <h3>Евгения Медведева</h3>
+                            <p class="skater-type">Одиночное катание</p>
+                            <div class="skater-achievements">
+                                <span class="achievement">2-кратная чемпионка мира</span>
+                                <span class="achievement">Серебро Олимпиады 2018</span>
+                            </div>
+                            <div class="skater-stats">
+                                <span><i class="fas fa-birthday-cake"></i> 19 ноября 1999</span>
+                                <span><i class="fas fa-user-tie"></i> Этери Тутберидзе</span>
+                            </div>
+                            <button class="view-more-btn" onclick="event.stopPropagation(); openModal(5)">
+                                Подробнее <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Карточка 6: Алина Загитова -->
+                    <div class="skater-card women" onclick="openModal(6)">
+                        <div class="skater-image">
+                            <img src="AlinaZagitova1.png" 
+                                 alt="Алина Загитова" loading="lazy">
+                            <div class="skater-category">Женщины</div>
+                        </div>
+                        <div class="skater-info">
+                            <h3>Алина Загитова</h3>
+                            <p class="skater-type">Одиночное катание</p>
+                            <div class="skater-achievements">
+                                <span class="achievement">Олимпийская чемпионка 2018</span>
+                                <span class="achievement">Чемпионка мира 2019</span>
+                            </div>
+                            <div class="skater-stats">
+                                <span><i class="fas fa-birthday-cake"></i> 18 мая 2002</span>
+                                <span><i class="fas fa-user-tie"></i> Этери Тутберидзе</span>
+                            </div>
+                            <button class="view-more-btn" onclick="event.stopPropagation(); openModal(6)">
+                                Подробнее <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Карточка 7: Аделия Петросян -->
+                    <div class="skater-card women" onclick="openModal(7)">
+                        <div class="skater-image">
+                            <img src="AdeliaPetrosyan1.jpg" 
+                                 alt="Аделия Петросян" loading="lazy">
+                            <div class="skater-category">Женщины</div>
+                        </div>
+                        <div class="skater-info">
+                            <h3>Аделия Петросян</h3>
+                            <p class="skater-type">Одиночное катание</p>
+                            <div class="skater-achievements">
+                                <span class="achievement">Чемпионка России 2024</span>
+                                <span class="achievement">Победитель Гран-при</span>
+                            </div>
+                            <div class="skater-stats">
+                                <span><i class="fas fa-birthday-cake"></i> 5 июля 2007</span>
+                                <span><i class="fas fa-user-tie"></i> Этери Тутберидзе</span>
+                            </div>
+                            <button class="view-more-btn" onclick="event.stopPropagation(); openModal(7)">
+                                Подробнее <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Карточка 8: Елизавета Туктамышева -->
+                    <div class="skater-card women" onclick="openModal(8)">
+                        <div class="skater-image">
+                            <img src="ElizavetaTuktamysheva1.jpg" 
+                                 alt="Елизавета Туктамышева" loading="lazy">
+                            <div class="skater-category">Женщины</div>
+                        </div>
+                        <div class="skater-info">
+                            <h3>Елизавета Туктамышева</h3>
+                            <p class="skater-type">Одиночное катание</p>
+                            <div class="skater-achievements">
+                                <span class="achievement">Чемпионка мира 2015</span>
+                                <span class="achievement">Чемпионка Европы 2015</span>
+                            </div>
+                            <div class="skater-stats">
+                                <span><i class="fas fa-birthday-cake"></i> 17 декабря 1996</span>
+                                <span><i class="fas fa-user-tie"></i> Алексей Мишин</span>
+                            </div>
+                            <button class="view-more-btn" onclick="event.stopPropagation(); openModal(8)">
+                                Подробнее <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Карточка 9: Петр Гуменник -->
+                    <div class="skater-card men" onclick="openModal(9)">
+                        <div class="skater-image">
+                            <img src="GumennikPetr.webp" 
+                                 alt="Петр Гуменник" loading="lazy">
+                            <div class="skater-category">Мужчины</div>
+                        </div>
+                        <div class="skater-info">
+                            <h3>Петр Гуменник</h3>
+                            <p class="skater-type">Одиночное катание</p>
+                            <div class="skater-achievements">
+                                <span class="achievement">Чемпион России 2024</span>
+                                <span class="achievement">Призер Гран-при</span>
+                            </div>
+                            <div class="skater-stats">
+                                <span><i class="fas fa-birthday-cake"></i> 30 марта 2004</span>
+                                <span><i class="fas fa-user-tie"></i> Алексей Мишин</span>
+                            </div>
+                            <button class="view-more-btn" onclick="event.stopPropagation(); openModal(9)">
+                                Подробнее <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Карточка 10: Владислав Дикиджи -->
+                    <div class="skater-card men" onclick="openModal(10)">
+                        <div class="skater-image">
+                            <img src="VladislavDikidzhi.jpg" 
+                                 alt="Владислав Дикиджи" loading="lazy">
+                            <div class="skater-category">Мужчины</div>
+                        </div>
+                        <div class="skater-info">
+                            <h3>Владислав Дикиджи</h3>
+                            <p class="skater-type">Одиночное катание</p>
+                            <div class="skater-achievements">
+                                <span class="achievement">Серебро ЧР 2024</span>
+                                <span class="achievement">Призер Гран-при</span>
+                            </div>
+                            <div class="skater-stats">
+                                <span><i class="fas fa-birthday-cake"></i> 3 февраля 2003</span>
+                                <span><i class="fas fa-user-tie"></i> Светлана Соколовская</span>
+                            </div>
+                            <button class="view-more-btn" onclick="event.stopPropagation(); openModal(10)">
+                                Подробнее <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Карточка 11: Анастасия Мишина / Александр Галлямов -->
+                    <div class="skater-card pairs" onclick="openModal(11)">
+                        <div class="skater-image">
+                            <img src="MishinaGalyamov1.jpeg" 
+                                 alt="Мишина и Галлямов" loading="lazy">
+                            <div class="skater-category">Пары</div>
+                        </div>
+                        <div class="skater-info">
+                            <h3>Мишина / Галлямов</h3>
+                            <p class="skater-type">Парное катание</p>
+                            <div class="skater-achievements">
+                                <span class="achievement">Олимпийские чемпионы</span>
+                                <span class="achievement">Чемпионы мира 2021</span>
+                            </div>
+                            <div class="skater-stats">
+                                <span><i class="fas fa-birthday-cake"></i> 24.04.2001 / 14.08.1999</span>
+                                <span><i class="fas fa-user-tie"></i> Артур Минчук</span>
+                            </div>
+                            <button class="view-more-btn" onclick="event.stopPropagation(); openModal(11)">
+                                Подробнее <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Карточка 12: Виктория Синицина / Никита Кацалапов -->
+                    <div class="skater-card dance" onclick="openModal(12)">
+                        <div class="skater-image">
+                            <img src="SinicinaKacalapov.jpg" 
+                                 alt="Синицина и Кацалапов" loading="lazy">
+                            <div class="skater-category">Танцы на льду</div>
+                        </div>
+                        <div class="skater-info">
+                            <h3>Синицина / Кацалапов</h3>
+                            <p class="skater-type">Танцы на льду</p>
+                            <div class="skater-achievements">
+                                <span class="achievement">Олимпийские чемпионы</span>
+                                <span class="achievement">Чемпионы мира 2021</span>
+                            </div>
+                            <div class="skater-stats">
+                                <span><i class="fas fa-birthday-cake"></i> 29.04.1995 / 10.07.1991</span>
+                                <span><i class="fas fa-user-tie"></i> Александр Жулин</span>
+                            </div>
+                            <button class="view-more-btn" onclick="event.stopPropagation(); openModal(12)">
+                                Подробнее <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Карточка 13: Александра Бойкова / Дмитрий Козловский -->
+                    <div class="skater-card pairs" onclick="openModal(13)">
+                        <div class="skater-image">
+                            <img src="BoykovaKozlovskiy.jpg" 
+                                 alt="Бойкова и Козловский" loading="lazy">
+                            <div class="skater-category">Пары</div>
+                        </div>
+                        <div class="skater-info">
+                            <h3>Бойкова / Козловский</h3>
+                            <p class="skater-type">Парное катание</p>
+                            <div class="skater-achievements">
+                                <span class="achievement">Бронза Олимпиады 2022</span>
+                                <span class="achievement">Чемпионы Европы 2020</span>
+                            </div>
+                            <div class="skater-stats">
+                                <span><i class="fas fa-birthday-cake"></i> 23.01.2002 / 23.12.1999</span>
+                                <span><i class="fas fa-user-tie"></i> Артур Минчук</span>
+                            </div>
+                            <button class="view-more-btn" onclick="event.stopPropagation(); openModal(13)">
+                                Подробнее <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Секция достижений -->
+            <section class="achievements-section">
+                <div class="achievements-container">
+                    <h2>Рекорды и достижения</h2>
+                    <div class="achievements-grid">
+                        <div class="achievement-card">
+                            <div class="achievement-icon">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <h3>Самые титулованные</h3>
+                            <p>Российские фигуристы завоевали более 150 золотых медалей на чемпионатах мира и Европы</p>
+                        </div>
+                        <div class="achievement-card">
+                            <div class="achievement-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <h3>Технические рекорды</h3>
+                            <p>Первые в истории исполнители четверных прыжков на Олимпийских играх</p>
+                        </div>
+                        <div class="achievement-card">
+                            <div class="achievement-icon">
+                                <i class="fas fa-history"></i>
+                            </div>
+                            <h3>Исторические победы</h3>
+                            <p>Золотой дубль на Олимпиаде-2022 в командном и личном зачете</p>
+                        </div>
+                        <div class="achievement-card">
+                            <div class="achievement-icon">
+                                <i class="fas fa-medal"></i>
+                            </div>
+                            <h3>Молодые таланты</h3>
+                            <p>Самые юные чемпионы мира и Европы в истории фигурного катания</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Секция тренеров -->
+            <section class="coaches-section">
+                <div class="coaches-container">
+                    <h2>Легендарные тренеры</h2>
+                    <p class="section-subtitle">Наставники, воспитавшие чемпионов мирового уровня</p>
+                    
+                    <div class="coaches-slider">
+                        <div class="coach-card">
+                            <div class="coach-image">
+                                <img src="EteriTutberidze.jpg" alt="Этери Тутберидзе">
+                            </div>
+                            <div class="coach-info">
+                                <h3>Этери Тутберидзе</h3>
+                                <p class="coach-category">Тренер</p>
+                                <div class="coach-stats">
+                                    <span><i class="fas fa-user-graduate"></i> 15+ чемпионов мира</span>
+                                    <span><i class="fas fa-medal"></i> 30+ олимпийских медалей</span>
+                                </div>
+                                <p class="coach-description">Воспитательница целой плеяды чемпионок, рекордсменка по количеству подготовленных олимпийских чемпионов.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="coach-card">
+                            <div class="coach-image">
+                                <img src="AlekseyMishin.jpeg" alt="Алексей Мишин">
+                            </div>
+                            <div class="coach-info">
+                                <h3>Алексей Мишин</h3>
+                                <p class="coach-category">Тренер</p>
+                                <div class="coach-stats">
+                                    <span><i class="fas fa-user-graduate"></i> 10+ чемпионов мира</span>
+                                    <span><i class="fas fa-medal"></i> 20+ олимпийских медалей</span>
+                                </div>
+                                <p class="coach-description">Легендарный тренер, специалист по прыжковой технике. Воспитал Евгения Плющенко и других звёзд.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+   <footer class="footer"> <!-- Подвал страницы -->
+        <div class="footer-container"> <!-- Контейнер для содержимого подвала -->
+            <p>© 2025 Разработчик:Тараненко Диана</p> <!-- Информация об разработчике -->
+            <address> <!-- Блок контактной информации -->
+                Адрес электронной почты: <a href="mailto:didiana.taranenko@gmail.com">didiana.taranenko@gmail.com</a><br> <!-- Ссылка на email -->
+                Номер мобильного телефона: <a href="tel:+79309498927">+7 (930) 949-89-27</a><br> <!-- Ссылка на телефонный номер -->
+          </address> <!-- Закрытие тега address (блока с контактной информацией) -->
+        </div> <!-- Закрытие div с классом "footer-container" (контейнера содержимого подвала) -->
+    </footer> <!-- Закрытие тега footer (подвала сайта) -->
+
+    <!-- Модальное окно -->
+    <div id="skaterModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <div class="modal-body" id="modalBody">
+                <!-- Контент будет заполняться JavaScript -->
+            </div>
+        </div>
+    </div>
+<script src="script.js" defer></script>
+<script src="skaters.js" defer></script>
+<div class="snowflakes-container" aria-hidden="true">
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❅</div>
+    <div class="snowflake">❆</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❅</div>
+    <div class="snowflake">❆</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❅</div>
+    <div class="snowflake">❆</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❅</div>
+    <div class="snowflake">❆</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❅</div>
+    <div class="snowflake">❆</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❅</div>
+    <div class="snowflake">❆</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❅</div>
+    <div class="snowflake">❆</div>
+</div>
+</body>
+</html>

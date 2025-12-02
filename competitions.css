@@ -1,0 +1,757 @@
+/* ===== ДОПОЛНИТЕЛЬНЫЕ СТИЛИ ДЛЯ СТРАНИЦЫ СОРЕВНОВАНИЙ ===== */
+
+/* Герой-секция */
+.competition-hero {
+    background: linear-gradient(135deg, 
+        rgba(233, 30, 99, 0.9), 
+        rgba(156, 39, 176, 0.9),
+        rgba(3, 169, 244, 0.9)),
+        url('https://images.unsplash.com/photo-1547949003-9792a18a2601?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+    margin-bottom: 50px;
+    border-radius: var(--border-radius);
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-strong);
+}
+
+.competition-hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    color: white;
+    -webkit-text-fill-color: white;
+    background: none;
+}
+
+.competition-hero p {
+    font-size: 1.3rem;
+    max-width: 800px;
+    margin: 0 auto 30px;
+    opacity: 0.95;
+    line-height: 1.6;
+}
+
+/* Фильтры соревнований */
+.competition-filters {
+    display: flex;
+    gap: 15px;
+    margin: 30px 0;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.filter-btn {
+    padding: 12px 25px;
+    background: var(--gradient-card);
+    border: 2px solid var(--ice-blue);
+    border-radius: var(--border-radius-lg);
+    cursor: pointer;
+    transition: var(--transition);
+    font-weight: 600;
+    color: var(--text-dark);
+    font-size: 0.95rem;
+    min-width: 120px;
+    text-align: center;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: var(--gradient-primary);
+    color: white;
+    border-color: transparent;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(233, 30, 99, 0.3);
+}
+
+/* Обновлённые карточки соревнований БЕЗ ИЗОБРАЖЕНИЙ */
+.competition-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 25px;
+    margin: 40px 0;
+}
+
+.competition-card {
+    background: var(--gradient-card);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    height: auto;
+    position: relative;
+}
+
+.competition-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+}
+
+/* Новые стили для карточек без изображений */
+.competition-icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid rgba(233, 30, 99, 0.1);
+}
+
+.competition-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--gradient-primary);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: white;
+    box-shadow: 0 5px 15px rgba(233, 30, 99, 0.2);
+}
+
+.competition-status {
+    display: inline-block;
+    padding: 6px 15px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.status-upcoming {
+    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+    color: var(--secondary-dark);
+    border: 1px solid #90caf9;
+}
+
+.status-ongoing {
+    background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+    color: #f57c00;
+    border: 1px solid #ffb74d;
+}
+
+.status-completed {
+    background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+    color: #388e3c;
+    border: 1px solid #81c784;
+}
+
+.competition-info {
+    padding: 25px;
+}
+
+.competition-header {
+    margin-bottom: 20px;
+}
+
+.competition-title {
+    font-size: 1.5rem;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.competition-subtitle {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.competition-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+}
+
+.meta-item.date {
+    background: rgba(233, 30, 99, 0.1);
+    color: var(--primary-color);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.meta-item.location {
+    color: var(--text-light);
+}
+
+.meta-item.participants {
+    color: var(--secondary-color);
+    font-weight: 500;
+}
+
+.competition-description {
+    color: var(--text-dark);
+    margin-bottom: 25px;
+    line-height: 1.7;
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.competition-details {
+    background: rgba(3, 169, 244, 0.05);
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border-left: 4px solid var(--secondary-color);
+}
+
+.details-title {
+    font-weight: 600;
+    color: var(--secondary-dark);
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.details-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.details-list li {
+    padding: 5px 0;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    position: relative;
+    padding-left: 20px;
+}
+
+.details-list li::before {
+    content: "•";
+    color: var(--secondary-color);
+    position: absolute;
+    left: 0;
+    font-size: 1.2rem;
+}
+
+.competition-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.prize-pool {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.prize-pool::before {
+    content: "💰";
+    font-size: 1.1rem;
+}
+
+.competition-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 25px;
+    background: var(--gradient-primary);
+    color: white;
+    text-decoration: none;
+    border-radius: var(--border-radius-lg);
+    font-weight: 600;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.95rem;
+}
+
+.competition-button:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(233, 30, 99, 0.3);
+}
+
+/* Важные турниры */
+.tournament-highlight {
+    background: linear-gradient(135deg, 
+        rgba(102, 126, 234, 0.95), 
+        rgba(118, 75, 162, 0.95));
+    color: white;
+    padding: 50px 40px;
+    border-radius: var(--border-radius);
+    margin: 60px 0;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-strong);
+}
+
+.tournament-highlight::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, 
+        rgba(255,255,255,0.1) 1px, 
+        transparent 1px);
+    background-size: 20px 20px;
+    animation: float 20s linear infinite;
+    opacity: 0.3;
+}
+
+.tournament-info {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.tournament-trophy {
+    font-size: 4rem;
+    text-align: center;
+    margin-bottom: 20px;
+    animation: float 3s ease-in-out infinite;
+    display: inline-block;
+}
+
+.tournament-info h2 {
+    color: white;
+    margin-bottom: 20px;
+    font-size: 2.2rem;
+}
+
+.tournament-info p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* Календарь соревнований */
+.calendar-section {
+    background: var(--gradient-card);
+    padding: 50px 40px;
+    border-radius: var(--border-radius);
+    margin: 60px 0;
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.calendar-section h2 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.calendar-section > p {
+    text-align: center;
+    color: var(--text-light);
+    margin-bottom: 40px;
+    font-size: 1.1rem;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.calendar-month {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: var(--transition);
+}
+
+.calendar-month:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.month-title {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--primary-light);
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.calendar-event {
+    padding: 15px;
+    margin-bottom: 12px;
+    border-left: 4px solid var(--primary-color);
+    background: rgba(233, 30, 99, 0.05);
+    border-radius: 8px;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.calendar-event:hover {
+    background: rgba(233, 30, 99, 0.1);
+    transform: translateX(5px);
+}
+
+.event-date {
+    font-weight: 700;
+    color: var(--primary-color);
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.event-date::before {
+    content: "📅";
+    font-size: 0.9rem;
+}
+
+.event-name {
+    color: var(--text-dark);
+    margin: 8px 0;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.event-location {
+    color: var(--text-light);
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.event-location::before {
+    content: "📍";
+    font-size: 0.8rem;
+}
+
+/* Секции результатов */
+.results-section {
+    background: var(--gradient-card);
+    padding: 50px 40px;
+    border-radius: var(--border-radius);
+    margin: 60px 0;
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.results-section h2 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.results-section > p {
+    text-align: center;
+    color: var(--text-light);
+    margin-bottom: 40px;
+    font-size: 1.1rem;
+}
+
+/* Таблицы результатов */
+.results-table-wrapper {
+    overflow-x: auto;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.results-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 800px;
+}
+
+.results-table th {
+    background: linear-gradient(135deg, 
+        var(--primary-color) 0%, 
+        var(--primary-dark) 100%);
+    color: white;
+    padding: 18px 15px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.95rem;
+    position: sticky;
+    top: 0;
+}
+
+.results-table th:first-child {
+    border-radius: 10px 0 0 0;
+}
+
+.results-table th:last-child {
+    border-radius: 0 10px 0 0;
+}
+
+.results-table td {
+    padding: 18px 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    font-size: 0.95rem;
+}
+
+.results-table tr:hover {
+    background: rgba(3, 169, 244, 0.05);
+    transition: var(--transition);
+}
+
+.results-table tr:nth-child(even) {
+    background: rgba(0, 0, 0, 0.02);
+}
+
+.medal {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-weight: bold;
+    margin-right: 10px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.gold { 
+    background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%); 
+    color: #000; 
+}
+
+.silver { 
+    background: linear-gradient(135deg, #c0c0c0 0%, #e0e0e0 100%); 
+    color: #000; 
+}
+
+.bronze { 
+    background: linear-gradient(135deg, #cd7f32 0%, #e69a5a 100%); 
+    color: #fff; 
+}
+
+/* Информационные блоки */
+.info-box {
+    background: rgba(233, 30, 99, 0.05);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    margin: 30px 0;
+    border-left: 5px solid var(--primary-color);
+}
+
+.info-box h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.info-box ol {
+    padding-left: 20px;
+    margin: 15px 0;
+}
+
+.info-box li {
+    margin-bottom: 10px;
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+.info-box .competition-button {
+    margin-top: 20px;
+}
+
+/* Стили для боковой панели */
+.sidebar .sidebar-widget {
+    margin-bottom: 25px;
+}
+
+.sidebar .sidebar-list {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.sidebar-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar-list::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 3px;
+}
+
+.sidebar-list::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 3px;
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+    .competition-grid {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .competition-hero {
+        padding: 70px 20px;
+    }
+    
+    .competition-hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .competition-hero p {
+        font-size: 1.1rem;
+    }
+    
+    .competition-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .competition-filters {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .filter-btn {
+        text-align: center;
+    }
+    
+    .calendar-section,
+    .results-section {
+        padding: 30px 20px;
+    }
+    
+    .calendar-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .competition-meta {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .competition-footer {
+        flex-direction: column;
+        gap: 15px;
+        align-items: stretch;
+    }
+    
+    .competition-button {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .competition-hero {
+        padding: 50px 15px;
+    }
+    
+    .competition-hero h1 {
+        font-size: 2rem;
+    }
+    
+    .competition-info {
+        padding: 20px 15px;
+    }
+    
+    .competition-title {
+        font-size: 1.3rem;
+    }
+    
+    .tournament-highlight {
+        padding: 30px 20px;
+    }
+    
+    .tournament-info h2 {
+        font-size: 1.8rem;
+    }
+}
+
+/* Анимации для карточек */
+@keyframes cardEntrance {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.competition-card {
+    animation: cardEntrance 0.6s ease-out;
+    animation-fill-mode: both;
+}
+
+.competition-card:nth-child(1) { animation-delay: 0.1s; }
+.competition-card:nth-child(2) { animation-delay: 0.2s; }
+.competition-card:nth-child(3) { animation-delay: 0.3s; }
+.competition-card:nth-child(4) { animation-delay: 0.4s; }
+.competition-card:nth-child(5) { animation-delay: 0.5s; }
+.competition-card:nth-child(6) { animation-delay: 0.6s; }
+
+/* Стили для пустого состояния */
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-light);
+}
+
+.empty-state-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    opacity: 0.3;
+}
+
+.empty-state h3 {
+    color: var(--text-light);
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.empty-state p {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* Индикаторы загрузки */
+.loading-indicator {
+    text-align: center;
+    padding: 40px;
+}
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(233, 30, 99, 0.2);
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 20px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}

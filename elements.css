@@ -1,0 +1,883 @@
+.elements-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.elements-header {
+    text-align: center;
+    margin-bottom: 50px;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 15px;
+    color: white;
+}
+
+.elements-header h1 {
+    font-size: 2.8em;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.elements-header p {
+    font-size: 1.3em;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Вступительный текст */
+.intro-section {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.intro-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    border-left: 4px solid #667eea;
+}
+
+.intro-content p {
+    font-size: 1.2em;
+    line-height: 1.7;
+    color: #2c3e50;
+    margin: 0;
+}
+
+/* Основные категории - КЛИКАБЕЛЬНЫЕ КАРТОЧКИ */
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.category-card {
+    cursor: pointer;
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    color: inherit;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    display: block;
+}
+
+.category-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.category-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    border-color: #667eea;
+    text-decoration: none;
+    color: inherit;
+}
+
+.category-card:hover::before {
+    transform: scaleX(1);
+}
+
+/* Анимация клика */
+.category-card:active {
+    transform: translateY(-5px) scale(0.98);
+    transition: transform 0.1s ease;
+}
+
+/* Индикатор кликабельности */
+.category-card::after {
+    content: 'Нажмите для перехода';
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.8em;
+    color: #667eea;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.category-card:hover::after {
+    opacity: 1;
+}
+
+.category-icon {
+    font-size: 3em;
+    margin-bottom: 20px;
+    display: block;
+    color: #667eea;
+    transition: transform 0.3s ease;
+}
+
+.category-card:hover .category-icon {
+    transform: scale(1.1);
+}
+
+.category-card h3 {
+    font-size: 1.6em;
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+.category-card p {
+    color: #7f8c8d;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.category-stats {
+    background: #f8f9fa;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 0.9em;
+    color: #667eea;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.category-card:hover .category-stats {
+    background: #667eea;
+    color: white;
+}
+
+/* Стили для целевых секций */
+.target-section {
+    padding: 80px 20px;
+    margin: 60px 0;
+    background: #f8f9fa;
+    border-radius: 15px;
+    border-left: 5px solid #667eea;
+    transition: all 0.5s ease;
+    min-height: 400px;
+}
+
+.target-section h2 {
+    color: #2c3e50;
+    margin-bottom: 30px;
+    font-size: 2.2em;
+    text-align: center;
+}
+
+.target-section p {
+    font-size: 1.1em;
+    line-height: 1.7;
+    color: #5a6c7d;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Стили для секции прыжков */
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-header h2 {
+    font-size: 2.5em;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.section-header h2 i {
+    color: #667eea;
+    margin-right: 15px;
+}
+
+.section-subtitle {
+    font-size: 1.2em;
+    color: #7f8c8d;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Навигация по прыжкам */
+.jumps-nav, .spins-nav, .steps-nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.nav-btn {
+    padding: 12px 25px;
+    border: 2px solid #667eea;
+    background: white;
+    color: #667eea;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.nav-btn:hover {
+    background: #667eea;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.nav-btn.active {
+    background: #667eea;
+    color: white;
+}
+
+/* Типы элементов */
+.jump-type, .spin-type, .step-type {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.jump-type.active, .spin-type.active, .step-type.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.type-description {
+    text-align: center;
+    color: #7f8c8d;
+    margin-bottom: 2rem;
+    font-style: italic;
+}
+
+/* Сетки элементов */
+.jumps-grid, .spins-grid, .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+/* Общие стили для карточек */
+.jump-card, .spin-card, .step-card {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    height: auto;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.jump-card:hover, .spin-card:hover, .step-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    border-color: #667eea;
+}
+
+/* Заголовки карточек */
+.jump-header, .spin-header, .step-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #f8f9fa;
+}
+
+.jump-header h4, .spin-header h4, .step-header h4 {
+    font-size: 1.5em;
+    color: #2c3e50;
+    margin: 0;
+}
+
+/* Уровни сложности */
+.difficulty {
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 0.8em;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.difficulty.easy {
+    background: #d4edda;
+    color: #155724;
+}
+
+.difficulty.medium {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.difficulty.hard {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.difficulty.expert {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+    color: white;
+}
+
+/* Техника выполнения */
+.jump-technique, .spin-technique, .step-technique {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 1.5rem;
+}
+
+.technique-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #5a6c7d;
+    font-size: 0.9em;
+}
+
+.technique-item i {
+    color: #667eea;
+    width: 16px;
+}
+
+/* Контент карточек */
+.jump-content, .spin-content, .step-content {
+    flex-grow: 1;
+}
+
+.jump-content p, .spin-content p, .step-content p {
+    line-height: 1.6;
+    color: #5a6c7d;
+    margin-bottom: 1.5rem;
+}
+
+/* Статистика элементов */
+.jump-stats, .spin-stats, .step-stats {
+    display: flex;
+    gap: 1rem;
+    margin-top: auto;
+    padding-top: 1.5rem;
+    border-top: 1px solid #f8f9fa;
+}
+
+.stat {
+    text-align: center;
+    flex: 1;
+}
+
+.stat-value {
+    display: block;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #667eea;
+}
+
+.stat-label {
+    font-size: 0.8em;
+    color: #7f8c8d;
+}
+
+/* Сравнительные таблицы */
+.comparison-table {
+    margin-top: 4rem;
+    padding: 2rem;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.comparison-table h3 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+    font-size: 1.8em;
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #f8f9fa;
+}
+
+th {
+    background: #667eea;
+    color: white;
+    font-weight: 600;
+    text-align: center;
+}
+
+tr:hover {
+    background: #f8f9fa;
+}
+
+/* Бейджи для таблиц */
+.badge {
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.8em;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.badge.edge {
+    background: #d4edda;
+    color: #155724;
+}
+
+.badge.toe {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.badge.sitting {
+    background: #d1ecf1;
+    color: #0c5460;
+}
+
+.badge.standing {
+    background: #d4edda;
+    color: #155724;
+}
+
+.badge.combination {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.badge.basic {
+    background: #e2e3e5;
+    color: #383d41;
+}
+
+.badge.turn {
+    background: #d1ecf1;
+    color: #0c5460;
+}
+
+.badge.sequence {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+/* Блок "Элементы ультра-си" */
+.ultra-c-elements {
+    margin: 4rem 0;
+    padding: 3rem 2rem;
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+    border-radius: 15px;
+    color: white;
+    text-align: center;
+}
+
+.ultra-c-elements h2 {
+    font-size: 2.2em;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.ultra-c-elements .section-subtitle {
+    font-size: 1.2em;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
+}
+
+.ultra-c-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.ultra-c-item {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.ultra-c-item:hover {
+    transform: translateY(-5px);
+}
+
+.ultra-c-item h4 {
+    font-size: 1.4em;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.ultra-c-item p {
+    line-height: 1.6;
+    opacity: 0.9;
+    margin: 0;
+}
+
+/* Блок "Для новичков" */
+.for-beginners {
+    margin: 4rem 0;
+    padding: 3rem 2rem;
+    background: #f8f9fa;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.for-beginners h2 {
+    font-size: 2.2em;
+    margin-bottom: 1rem;
+    color: #2c3e50;
+}
+
+.beginners-content {
+    max-width: 800px;
+    margin: 2rem auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.beginners-item {
+    display: flex;
+    align-items: flex-start;
+    text-align: left;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.beginners-item:hover {
+    transform: translateX(10px);
+}
+
+.beginners-item i {
+    font-size: 1.5em;
+    color: #667eea;
+    margin-right: 1rem;
+    margin-top: 0.2rem;
+}
+
+.beginners-item h4 {
+    font-size: 1.3em;
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+}
+
+.beginners-item p {
+    color: #7f8c8d;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Блок критериев оценки дорожек шагов */
+.scoring-criteria {
+    margin-top: 4rem;
+    padding: 2.5rem;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 15px;
+    border-left: 5px solid #28a745;
+}
+
+.scoring-criteria h3 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+    font-size: 1.8em;
+}
+
+.criteria-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.criterion {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+}
+
+.criterion:hover {
+    transform: translateY(-5px);
+}
+
+.criterion h4 {
+    font-size: 1.2em;
+    color: #2c3e50;
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.criterion h4 i {
+    color: #28a745;
+}
+
+.criterion p {
+    color: #6c757d;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Анимация появления при прокрутке */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.target-section {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .categories-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .elements-header h1 {
+        font-size: 2.2em;
+    }
+    
+    .elements-header {
+        padding: 30px 15px;
+    }
+    
+    .intro-content {
+        padding: 20px;
+    }
+    
+    .intro-content p {
+        font-size: 1.1em;
+    }
+    
+    .ultra-c-elements,
+    .for-beginners {
+        padding: 2rem 1rem;
+        margin: 3rem 0;
+    }
+    
+    .ultra-c-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .beginners-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .beginners-item i {
+        margin-right: 0;
+        margin-bottom: 0.5rem;
+    }
+    
+    .category-card {
+        padding: 20px;
+    }
+    
+    .category-card::after {
+        content: 'Нажмите';
+        font-size: 0.7em;
+    }
+    
+    .target-section {
+        padding: 50px 15px;
+        margin: 40px 0;
+        min-height: 300px;
+    }
+    
+    .jumps-nav,
+    .spins-nav,
+    .steps-nav {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .nav-btn {
+        width: 200px;
+    }
+    
+    .jumps-grid,
+    .spins-grid,
+    .steps-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .jump-card,
+    .spin-card,
+    .step-card {
+        min-height: 350px;
+        padding: 1.5rem;
+    }
+    
+    .jump-header,
+    .spin-header,
+    .step-header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    
+    .jump-stats,
+    .spin-stats,
+    .step-stats {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .comparison-table {
+        padding: 1rem;
+    }
+    
+    .scoring-criteria {
+        padding: 1.5rem;
+    }
+    
+    .criteria-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .elements-header h1 {
+        font-size: 1.8em;
+    }
+    
+    .elements-header p {
+        font-size: 1.1em;
+    }
+    
+    .ultra-c-elements h2,
+    .for-beginners h2 {
+        font-size: 1.8em;
+    }
+    
+    .category-card {
+        padding: 15px;
+    }
+    
+    .section-header h2 {
+        font-size: 2em;
+    }
+    
+    .comparison-table {
+        padding: 1rem;
+    }
+    
+    th, td {
+        padding: 0.5rem;
+        font-size: 0.9em;
+    }
+    
+    .jump-card,
+    .spin-card,
+    .step-card {
+        min-height: 320px;
+        padding: 1.2rem;
+    }
+    
+    .criterion {
+        padding: 1.2rem;
+    }
+}
+
+/* Дополнительные стили для статистики дорожек шагов */
+.step-stats .stat-value {
+    font-size: 1.3em;
+    color: #667eea;
+}
+
+/* Специфичные стили для иконок в карточках дорожек */
+.step-card .technique-item i {
+    color: #28a745;
+}
+
+/* Улучшенные стили для таблиц на мобильных */
+@media (max-width: 768px) {
+    .table-container {
+        margin: 0 -15px;
+        padding: 0 15px;
+    }
+    
+    table {
+        font-size: 0.9em;
+    }
+    
+    th, td {
+        padding: 0.5rem 0.3rem;
+    }
+    
+    .badge {
+        font-size: 0.7em;
+        padding: 3px 6px;
+    }
+}
+
+/* Анимации при наведении на элементы */
+.category-card, .jump-card, .spin-card, .step-card, .ultra-c-item, .beginners-item, .criterion {
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Плавное появление контента */
+.elements-page * {
+    animation-timing-function: ease-out;
+}
+
+/* Оптимизация для печати */
+@media print {
+    .category-card, .jump-card, .spin-card, .step-card {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+    
+    .nav-btn, .category-card::after {
+        display: none;
+    }
+    
+    .elements-header {
+        background: white !important;
+        color: black !important;
+        text-shadow: none !important;
+    }
+}

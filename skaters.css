@@ -696,13 +696,21 @@
         grid-template-columns: 1fr;
     }
     
+    .skaters-hero {
+        height: auto; 
+        min-height: 350px; 
+        padding: 40px 20px; 
+    }
+    
+    .hero-content {
+        width: 100%; 
+        box-sizing: border-box; 
+    }
+    
     .hero-content h1 {
-        font-size: 2.2em;
-        word-wrap: break-word; 
-        word-break: break-word; 
-        hyphens: auto; 
-        padding: 0 10px; 
-        line-height: 1.2; 
+        font-size: 1.8em;
+        word-break: break-word;
+        margin-bottom: 0.5rem;
     }
 }
 
@@ -791,3 +799,4 @@
         0 16px 32px rgba(0,0,0,0.1);
 
 }
+
